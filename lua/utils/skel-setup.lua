@@ -10,17 +10,25 @@ M.setup = function()
 
     mappings = {
       ["*.cs"] = "csharp.skel",
+      ["*.java"] = "java.skel",
     },
 
     substitutions = {
       ["CLASS_NAME"] = helper.get_classname,
       ["NAMESPACE"] = helper.get_namespace,
       ["TYPE"] = helper.get_type,
+      ["PACKAGE"] = helper.get_package,
     },
 
     author = "MyName",
     namespace = { "MyOrg", "MyApp" },
   })
+  -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+  --   pattern = "*",
+  --   callback = function()
+  --     require("utils.skel-helper").setup_select_mode()
+  --   end,
+  -- })
 end
 
 return M
