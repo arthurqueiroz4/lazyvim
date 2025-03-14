@@ -102,4 +102,8 @@ M.get_package = function()
   return table.concat(package_parts, ".")
 end
 
+M.get_folder_name = function()
+  return vim.fn.fnamemodify(vim.fn.expand("%:p:h"), ":t")
+end
+
 return M
